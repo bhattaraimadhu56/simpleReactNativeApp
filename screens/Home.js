@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Image, FlatList } from "react-native";
-import { Card } from "react-native-paper";
+import { Card, FAB } from "react-native-paper";
 
 const Home = () => {
   // this is javascript object just for storing data we create a javascript array
@@ -115,6 +115,18 @@ const Home = () => {
         // keyExtractor={(item) => item.id}
         // except key to be string so use template string
         keyExtractor={(item) => `${item.id}`}
+      />
+      {/* End of Flatlist */}
+      {/* FAB Floating Action Button */}
+      <FAB
+        style={{ position: "absolute", margin: 16, right: 0, bottom: 0 }}
+        small={false} // boolean value
+        icon="plus" // icon="camera"
+        // loading={true}  //// boolean value
+        color="#B550C7" // gives color for + icon
+        // theme={{ color: { primary: "#C76F50", accent: "#1263Cf" } }}
+        onPress={() => console.log("Pressed")}
+        onLongPress={() => console.log("Long Pressed")}
       />
     </>
   );
