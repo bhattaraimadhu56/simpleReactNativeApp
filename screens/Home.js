@@ -3,9 +3,21 @@ import { Text, View, Image } from "react-native";
 import { Card } from "react-native-paper";
 
 const Home = () => {
-  return (
-    <>
-      <Card style={{ backgroundColor: "#32a89d" }}>
+  // this is javascript object just for storing data we create a javascript array
+  const data = [
+    { id: 1, name: "Madhu", position: "Web Developer", city: "Auckland" },
+    { id: 2, name: "Aayan", position: "Web Developer", city: "Auckland" },
+    { id: 3, name: "Bhattarai", position: "Web Developer", city: "Auckland" },
+    { id: 4, name: "Parbati", position: "Web Developer", city: "Auckland" },
+  ];
+  // just create a variable
+  // this is not a function so we shouldn't need to use () while calling
+  const dataToShow = data.map((a) => {
+    return (
+      <Card
+        style={{ backgroundColor: "#32a89d", margin: 5, maxHeight: 120 }}
+        key={a.id}
+      >
         {/* // Note Due to flexDirection :row view1 and view 2 are align row wise
         but text inside view2 will allign colum-wise because by default
         flexDirection is Columnwise */}
@@ -14,7 +26,7 @@ const Home = () => {
           style={{
             // alignItems: "center",
             // justifyContent: "center",
-            flexDirection: "row", // By default flexDirection is column     (up- to- down) you can change to row( side by side left to right)
+            flexDirection: "row", // Ny default flexDirection is column(up-down) you can change to row(sideby side left toright)
             // all contains should be in one view
             padding: 5,
           }}
@@ -30,13 +42,16 @@ const Home = () => {
           {/* View 2 */}
 
           <View style={{ paddingTop: 20 }}>
-            <Text>Welcome</Text>
-            <Text>from Home Page</Text>
+            <Text>Name:{a.name}</Text>
+            <Text>Position:{a.position}</Text>
+            <Text>City: {a.city}</Text>
           </View>
         </View>
       </Card>
-    </>
-  );
+    );
+  });
+
+  return <>{dataToShow}</>;
 };
 
 export default Home;
