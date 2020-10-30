@@ -1,7 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-// import Home from "./screens/Home";
+//  To bring contains below Status Bar
+import Constants from "expo-constants";
+import Home from "./screens/Home";
 
 export default function App() {
   return (
@@ -9,7 +11,7 @@ export default function App() {
     <View style={container}>
       <Text> 1. Hello from App.js </Text>
       <StatusBar style="auto" />
-      {/* <Home /> */}
+      <Home />
     </View>
   );
 }
@@ -32,4 +34,7 @@ const container = {
   backgroundColor: "#7ecfff",
   alignItems: "center",
   justifyContent: "center",
+  //  To bring contains below Status Bar
+  marginTop: Constants.statusBarHeight,
+  // marginTop: 45,
 };
